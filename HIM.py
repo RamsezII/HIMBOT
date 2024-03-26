@@ -3,11 +3,11 @@ import discord
 # from google.cloud import texttospeech
 
 
-intents = discord.Intents.default()
-intents.messages = True
-intents.guilds = True
+parent_folder = os.path.dirname(__file__)
+root_folder = os.path.dirname(parent_folder)
 
-client = discord.Client(intents=intents)
+intents = discord.Intents.all()
+client = discord.Client(command_prefix='!', intents=intents)
 
 
 @client.event
@@ -17,10 +17,6 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    print()
-    print(message.author.name)
-    print(message.content)
-    print()
     if message.content.startswith('/ratchet'):
         # Extrait le texte après la commande
         text = message.content[len('/ratchet'):].strip()
@@ -29,9 +25,12 @@ async def on_message(message):
         # Exemple avec Google TTS (faudra configurer l'authentification et tout)
 
         # Envoie le fichier audio généré
-        await message.channel.send(file=discord.File('Fart with reverb sound effect.mp3'))
+        # file_path = os.path.join(parent_folder, 'Fart with reverb sound effect.mp3')
+        file_path = os.path.join(parent_folder, 'ratchetunreal.mp3')
+        await message.channel.send(file=discord.File(file_path), reference=message)
 
-token_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'HIMBOT_token.txt')
+
+token_path = os.path.join(root_folder, 'HIMBOT_token.txt')
 token = ''
 with open(token_path, 'r') as file:
     token = file.read()
