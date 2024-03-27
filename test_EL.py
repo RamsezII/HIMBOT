@@ -21,7 +21,7 @@ headers = {
 }
 
 data = {
-    "text": """Oooooooooooh boooooi, i sure cant get enough of Helga's meatloafs! They're so delicious, i could eat them all day long!""",
+    "text": """put your bahnayner away Qwark, its not mating season yet!""",
     "model_id": "eleven_monolingual_v1",
     "voice_settings": {
         "stability": 0.5,
