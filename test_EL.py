@@ -21,7 +21,7 @@ headers = {
 }
 
 data = {
-    "text": """School sucks ass""",
+    "text": """Oooooooooooh boooooi, i sure cant get enough of Helga's meatloafs! They're so delicious, i could eat them all day long!""",
     "model_id": "eleven_monolingual_v1",
     "voice_settings": {
         "stability": 0.5,
